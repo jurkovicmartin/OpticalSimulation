@@ -1,3 +1,6 @@
+"""
+Simulation process.
+"""
 
 import numpy as np
 from optic.utils import parameters

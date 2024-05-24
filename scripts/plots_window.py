@@ -1,3 +1,6 @@
+"""
+Popup window for displaying graphical outputs to user.
+"""
 
 import customtkinter as ctk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg

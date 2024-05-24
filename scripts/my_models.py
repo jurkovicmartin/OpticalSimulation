@@ -1,3 +1,7 @@
+"""
+Created or modified models for simulation.
+Modified models are copies of OptiCommPy models.
+"""
 
 import numpy as np
 import scipy.constants as const

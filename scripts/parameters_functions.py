@@ -1,3 +1,6 @@
+"""
+Functions for converting and validating input values.
+"""
 
 import re
 from tkinter import messagebox
@@ -213,7 +216,7 @@ def checkUpLimit(parameterName: str, parameterValue: float, generalParameters: d
 
     False: limit not ok
     """
-    # Froma is tuple (bool, value)
+    # Format is tuple (bool, value)
     # True = parameter can be equal or lower
     # False = parameter must be lower
     upLimits = {
@@ -226,13 +229,13 @@ def checkUpLimit(parameterName: str, parameterValue: float, generalParameters: d
 
         # Channel
         "Length":(True, 1000), # 1000 km
-        "Attenuation":(True, 1), # 1 dB/km
+        "Attenuation":(True, 5), # 5 dB/km
         "Dispersion":(True, 200), # 200 ps/nm/km
         # Reciever
         "Bandwidth":(True, generalParameters.get("Fs") / 2), # <= Fs/2
         "Resolution":(True, 10), # 10 A/W 
         # Amplifier
-        "Gain":(True, 100), # 100 dB
+        "Gain":(True, 50), # 50 dB
         "Noise":(True, 100), # 100 dB
         "Detection":(True, 100) # 100 dBm
     }

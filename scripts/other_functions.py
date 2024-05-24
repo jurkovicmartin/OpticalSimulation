@@ -1,3 +1,6 @@
+"""
+Other functions.
+"""
 
 def calculateTransSpeed(symbolRate: int, modulationOrder: int) -> int:
     """

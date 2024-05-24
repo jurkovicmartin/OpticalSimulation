@@ -1,3 +1,6 @@
+"""
+Main window GUI and methods.
+"""
 
 import tkinter as tk
 from tkinter import messagebox

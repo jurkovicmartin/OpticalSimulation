@@ -1,3 +1,7 @@
+"""
+Start the application.
+"""
+
 from scripts.main_gui import GUI
 
 def main():

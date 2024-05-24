@@ -1,3 +1,6 @@
+"""
+Popup window to insert communication model parameters.
+"""
 
 import tkinter as tk
 import customtkinter as ctk
@@ -105,7 +108,7 @@ class ParametersWindow:
             self.modulatorFrame = ctk.CTkFrame(self.popup)
             self.modulatorFrame.pack(padx=10, pady=10, fill="both", expand=True)
 
-            # Titile
+            # Title
             self.titleLabel = ctk.CTkLabel(self.modulatorFrame, text="Parameters of modulator", font=headFont)
             self.titleLabel.pack(padx=20, pady=20)
 

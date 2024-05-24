@@ -1,3 +1,6 @@
+"""
+Help tab content.
+"""
 
 import customtkinter as ctk
 from PIL import Image
