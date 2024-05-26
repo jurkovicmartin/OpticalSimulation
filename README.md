@@ -14,101 +14,37 @@ Graphical user interface has been created with combination of Tkinter and Custom
 
 ## Available parameters settings
 
-<style>
-    .container {
-        display: flex;
-        align-items: flex-start;
-    }
-    .list {
-        flex: 1;
-    }
-    .float-right {
-        margin-left: 20px;
-        margin-top: 20px;
-    }
-</style>
+* General parameters - Modulation format, Order of modulation, Symbol rate
 
-<div class="container">
-    <div class="list">
-        <ul>
-            <li>General parameters
-                <ul>
-                    <li>Modulation format</li>
-                    <li>Order of modulation</li>
-                    <li>Symbol rate</li>
-                </ul>
-            </li>
-            <li>Optical source parameters
-                <ul>
-                    <li>Power</li>
-                    <li>Central frequency</li>
-                    <li>Linewidth</li>
-                    <li>RIN</li>
-                </ul>
-            </li>
-            <li>Modulator parameters
-                <ul>
-                    <li>Type</li>
-                </ul>
-            </li>
-            <li>Transmission channel parameters
-                <ul>
-                    <li>Length</li>
-                    <li>Attenuation</li>
-                    <li>Chromatic dispersion</li>
-                </ul>
-            </li>
-            <li>Detector parameters
-                <ul>
-                    <li>Type</li>
-                    <li>Bandwidth</li>
-                    <li>Responsivity</li>
-                </ul>
-            </li>
-            <li>Optical amplifier parameters
-                <ul>
-                    <li>Position in channel</li>
-                    <li>Gain</li>
-                    <li>Noise figure</li>
-                    <li>Sensitivity</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <img src="img/output_eye.png" alt="PAM4 eye diagrams" title="PAM4 eye diagrams" class="float-right" width=65%>
-</div>
+* Optical source parameters - Power, Central frequency, Linewidth, RIN
+
+* Modulator parameters - Type
+
+* Transmission channel parameters - Length, Attenuation, Chromatic dispersion
+
+* Detector parameters - Type, Bandwidth, Responsivity
+
+* Optical amplifier parameters - Position in channel, Gain, Noise figure, Sensitivity
 
 ## Available outputs
 
-<div class="container">
-    <div class="list">
-        <ul>
-            <li>Numeric values
-                <ul>
-                    <li>Transmitted power</li>
-                    <li>Received power</li>
-                    <li>Transmission speed</li>
-                    <li>BER</li>
-                    <li>SER</li>
-                    <li>SNR</li>
-                </ul>
-            </li>
-            <li>Graphical outputs
-                <ul>
-                    <li>Information signal in time</li>
-                    <li>Optical signal in time</li>
-                    <li>Spectrums</li>
-                    <li>Constellation diagrams</li>
-                    <li>Eye diagrams</li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-    <img src="img/output_OOK.png" alt="OOK modulated signal" title="OOK modulated signal" class="float-right" width=65%>
-</div>
+* Numeric values - Transmitted power, Received power, Transmission speed, BER, SER, SNR
 
-<img src="img/output_constellations.png" alt="QPSK constellations diagrams" title="QPSK constellations diagrams" width=80%>
+* Graphical outputs - Information signal in time, Optical signal in time, Spectrums, Constellation diagrams, Eye diagrams
 
+## Example outputs
+
+* **OOK modulated signal**
+
+<img src="img/output_OOK.png" alt="OOK modulated signal" title="OOK modulated signal" width=70%>
+
+* **QPSK constellations diagrams**
+
+<img src="img/output_constellations.png" alt="QPSK constellations diagrams" title="QPSK constellations diagrams" width=70%>
+
+* **PAM4 eye diagrams**
+
+<img src="img/output_eye.png" alt="PAM4 eye diagrams" title="PAM4 eye diagrams" width=70%>
 
 ## Installation
 
