@@ -344,13 +344,13 @@ class GUI(ctk.CTk):
             self.simulationResults = None
             return
         
-        # Simulation was succesfull
+        # Simulation was successful
         else:
             # Show numeric values
             outputValues = getValues(self.simulationResults, self.generalParameters)
             self.showValues(outputValues)
 
-            messagebox.showinfo("Simulation status", "Simulation succesfully completed")
+            messagebox.showinfo("Simulation status", "Simulation successfully completed")
 
 
     def amplifierCheckbuttonChange(self):
@@ -403,7 +403,7 @@ class GUI(ctk.CTk):
 
     def showParametersPopup(self, clickedButton):
         """
-        Show new popup window to set parametrs for specific block of scheme.
+        Show new popup window to set parameters for specific block of scheme.
         """
         # Some general parameter is not ok
         if not self.updateGeneralParameters():
@@ -453,7 +453,7 @@ class GUI(ctk.CTk):
         """
         Enable widgets when parameters have been set. (Unlock the main window)
         """
-        # Enabel buttons on input settings tab
+        # Enable buttons on input settings tab
         for frame in self.buttonFrames:
             for button in frame.winfo_children():
                 if isinstance(button, ctk.CTkButton):
