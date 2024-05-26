@@ -40,7 +40,7 @@ Graphical user interface has been created with combination of Tkinter and Custom
 
 * **QPSK constellations diagrams**
 
-<img src="img/output_constellations.png" alt="QPSK constellations diagrams" title="QPSK constellations diagrams" width=70%>
+<img src="img/output_constellations.png" alt="QPSK constellations diagrams" title="QPSK constellations diagrams" width=80%>
 
 * **PAM4 eye diagrams**
 
