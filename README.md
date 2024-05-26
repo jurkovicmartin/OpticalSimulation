@@ -1,16 +1,16 @@
 # OpticalSimulation
 
-This repository is **Python** simulation application that simulates optical fiber communication. Purpose of the application is to **demonstrate** and **visualize** influence of some parameters of parts of optical communication model. Simulations should also provide better understanding of optical modulation and optical signal detection.
+This repository is **Python** simulation application that simulates optical fiber communication. The purpose of the application is to **demonstrate** and **visualize** the influence of some parameters of parts of optical communication model. Simulations should also provide better understanding of optical modulation and optical signal detection.
 
-In the main window of application there is displayed communication model whose parameters can be changed by user. User can also set some general parameters of the communication such as transmission speed or modulation. Outputs of simulation are presented to the user in numeric and graphical form. In addition a little help is included in the app which contains simple descriptions of properties that can user change.
+In the main window of application there is displayed communication model whose parameters can be changed by user. User can also set some general parameters of the communication such as transmission speed or modulation. Outputs of simulation are presented to the user in numeric and graphical format. Additionally, the application includes a help section containing simple descriptions of the properties that users can modify.
 
 ![Main window](img/main_window.png "Main window")
 
 ## Used packages
 
-Main function package is **OptiCommPy**. With this package simulation core has been created. Some functions from OptiCommPy has been modified and the new ones have been created in a way that they are compatible with OptiCommPy ones. Github to this package <https://github.com/edsonportosilva/OptiCommPy>.
+The main function package is **OptiCommPy**. With this package simulation core has been created. Certain functions from OptiCommPy have been modified and the new ones have been created in a way to ensure compatibility with original OptiCommPy ones. The GitHub repository for this package can be found at <https://github.com/edsonportosilva/OptiCommPy>.
 
-Graphical user interface has been created with combination of Tkinter and CustomTkinter packages. CustomTkinter project can be visited on <https://github.com/TomSchimansky/CustomTkinter>.
+Graphical user interface (GUI) was created using a combination of Tkinter and CustomTkinter packages. For further details on the CustomTkinter project, visit <https://github.com/TomSchimansky/CustomTkinter>.
 
 ## Available parameters settings
 
