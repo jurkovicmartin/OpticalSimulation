@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Basic logic - Optical simulation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Basic logic";
+        var mkdocs_page_input_path = "logic.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Optical simulation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Introduction</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../layout/">Project layout</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../guide/">User guide</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="#">Basic logic</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#data-storage">Data storage</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transmitter">Transmitter</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#transmission-channel">Transmission channel</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#receiver">Receiver</a>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../screenshots/">Screenshots</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Optical simulation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+      <li class="breadcrumb-item active">Basic logic</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="basic-logic">Basic logic</h1>
+<p>As mentioned before the idea of application is to display communication model. With this model user can control the simulation. The basic structure of simulation is similar to the real communication channel which means that steps done in simulation process are inspired by steps of real signal processing. For this approach OptiCommPy package was really useful because it provides models and functions to follow this concept.</p>
+<blockquote>
+<p><em>Steps of simulation</em></p>
+</blockquote>
+<p><img alt="Simulation steps" src="../img/simulation_steps.png" style="width:65%;" title="Simulation steps" /></p>
+<p>For better understanding the logic of the simulation will be divided into three sections. First one is transmitter which contains optical source, information source and modulator. Second one is transmission channel with amplifier. Last one is receiver which contains detector and information restore.</p>
+<blockquote>
+<p><em>Divided communication channel</em></p>
+</blockquote>
+<p><img alt="Divided communication model" src="../img/divided_model.png" style="width:60%;" title="Divided communication model" /></p>
+<h2 id="data-storage">Data storage</h2>
+<p>In the application data storing is done by dictionaries. The key property of dictionary is that it stores information as key, value pairs. Also no duplicate keys are allowed. Every time as a key a parameter name is used. That means two same parameters cannot be stored that could happen by accident. Another reason for using dictionaries is that when a parameter value is needed you can get it from dictionary by its name (key). This should make the program more readable.</p>
+<p>Graphical outputs are also stored in dictionary. In this case the value is a figure, axes tuple. Figure and axes are objects from matplotlib package. Figures are then displayed using tkinter canvas.</p>
+<h2 id="transmitter">Transmitter</h2>
+<p>The generation of the <strong>modulation signal</strong> can be divided into three steps. In the first step, a random sequence of bits is generated to represent the information to be transmitted. These bits are then used to form symbols. The symbol words are formed with Gray's code and are directly influenced by the format and modulation order settings specified by the user (general parameters). The last step is the generation of the signal pulses. In this step, a large number of samples are generated from a sequence of symbols that together represent a continuous modulation signal.</p>
+<p>The generation of the <strong>carrier signal</strong> is logically performed after the modulation signal. This is because the modulation signal and the carrier signal must have the same number of signal samples. The carrier signal has constant power and constant phase.</p>
+<p>The last task of the transmitting part is to perform the <strong>modulation</strong>. This task already requires knowledge of the modulation and carrier signals, which are the input parameters of the different modulator models. The output is the modulated signal.</p>
+<blockquote>
+<p><em>Basic transmitter logic</em></p>
+</blockquote>
+<p><img alt="Basic transmitter logic" src="../img/transmitter.png" style="width:60%;" title="Basic transmitter logic" /></p>
+<h2 id="transmission-channel">Transmission channel</h2>
+<p><strong>Transmission channel</strong> and <strong>amplifier</strong> can form the following combinations. Each combination has a little different logic.</p>
+<ul>
+<li>Ideal transmission channel without amplifier</li>
+<li>Ideal transmission channel with ideal amplifier</li>
+<li>Ideal transmission channel with non-ideal amplifier</li>
+<li>Transmission channel without amplifier</li>
+<li>Transmission channel with ideal amplifier</li>
+<li>Transmission channel with non-ideal amplifier</li>
+</ul>
+<p>In case of combination with only the ideal transmission channel, i.e. without amplifier, the modulated signal is transmitted directly to the output. This is the simplest case. Similar is case of an ideal transmission channel and a general amplifier. In case of ideal channel position of amplifier doesn't matter.</p>
+<p>Where position can no longer be ignored are combinations with a non-ideal transmission channel and a general amplifier. In this case, the position of the amplifier plays a big role and the connection of the simulation models is adapted to this. As an example, if the amplifier is placed in the middle of the channel length that is input by the user is divided in half. The first half is then placed in front of the amplifier and the second half behind it.</p>
+<p>There is also a significant difference between using an ideal and a non-ideal amplifier. In case of non-ideal amplifier a condition if the input signal has enough power is tested (this power limit is one of amplifiers parameters).  If this input power isn't enough, the user is alerted to this fact and the simulation is not completed.</p>
+<blockquote>
+<p><em>Basic transmission channel logic</em></p>
+</blockquote>
+<p><img alt="Basic transmission channel logic" src="../img/channel.png" style="width:45%;" title="Basic transmission channel logic" /></p>
+<h2 id="receiver">Receiver</h2>
+<p>Two types of detection are available, simple intensity detection with a photodiode and coherent detection with multiple photodiodes. The output of detection model is the signal after detection, from which the symbols are read out.</p>
+<blockquote>
+<p><strong><em>Note:</em></strong> <em>Detected symbols are formed back to bits which are not used in the application</em></p>
+<p><em>Basic receiver logic</em></p>
+</blockquote>
+<p><img alt="Basic receiver logic" src="../img/receiver.png" style="width:45%;" title="Basic receiver logic" /></p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../guide/" class="btn btn-neutral float-left" title="User guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../screenshots/" class="btn btn-neutral float-right" title="Screenshots">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../guide/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../screenshots/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
