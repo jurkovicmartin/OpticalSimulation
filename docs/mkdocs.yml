@@ -1,0 +1,12 @@
+site_name: Optical simulation
+theme: readthedocs
+
+nav:
+  - Introduction: index.md
+  - Project layout: layout.md
+  - User guide: guide.md
+  - Basic logic: logic.md
+  - Screenshots: screenshots.md
+
+markdown_extensions:
+  - attr_list
