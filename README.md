@@ -77,3 +77,5 @@ Because project contains only source scripts the recommended installation is:
         py app.py
 
 ## Documentation
+
+Further documentation can be found at <https://jurkovicmartin.github.io/OpticalSimulation/>
